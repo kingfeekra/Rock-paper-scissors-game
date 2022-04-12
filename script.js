@@ -16,6 +16,10 @@ function computerPlay() {
     else {
         return "Scissors";
     }
+};
+
+function playRound() {
+    
 }
 
 console.log(computerPlay());
