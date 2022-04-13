@@ -2,24 +2,46 @@ let rock = 1;
 let paper = 2;
 let scissors = 3;
 
-function computerPlay() {
+let playerChoice = prompt("Rock, paper or scissors?");
+
+function computerPlay() { //function for computer's turn
     let randNumb = Math.floor(Math.random()*3) + 1;
-    console.log(randNumb);
     if (rock == randNumb) {
-        return "Rock";
+        console.log("rock");
+        return "rock";
     }
 
     else if (paper == randNumb) {
-        return "Paper";
+        console.log("paper");
+        return "paper";   
     }
 
     else {
-        return "Scissors";
+        console.log("scissors");
+        return "scissors";
+        
     }
-};
-
-function playRound() {
     
+}; 
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
+        return "You lose! Paper beats rock."
+    } 
+    else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
+        return "You win! Rock beats scissors."
+    }
+    else if (playerSelection.toLowerCase() == computerSelection) {
+        return "Draw."
+    }
 }
 
-console.log(computerPlay());
+console.log(playRound("rock", computerPlay()));
+
+function game() {
+    let playerCount = 0;
+    let computerCount = 0;
+    for (let i = 0; i <  5; i++) {
+        playRound
+    }
+}
