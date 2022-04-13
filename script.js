@@ -13,8 +13,8 @@ function playerSelect() {
 
 function computerPlay() { //function for computer's turn
     
-    let randNumb = Math.floor(Math.random()*3) + 1;
-    if (rock == randNumb) {
+    let randNumb = Math.floor(Math.random()*3) + 1; //random number between 1 and 3 is generated
+    if (rock == randNumb) { //if rock, paper or scissors is equal to the random number, return a string
         console.log("rock");
         return "rock";
     }
@@ -32,8 +32,8 @@ function computerPlay() { //function for computer's turn
     
 }; 
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
+function playRound(playerSelection, computerSelection) { //function to play a single round of the game
+    if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") { //various matchups return different results
         computerCount++;
         return "You lose! Paper beats rock."
     } 
@@ -69,9 +69,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//console.log(playRound(playerSelection, computerPlay()));
-
-function game() {
+function game() { //function to repeat the game for 5 rounds
     
     for (let i = 0; i <  5; i++) {
         console.log(playRound(playerSelect(), computerPlay()));
@@ -87,7 +85,7 @@ function game() {
     else {
         console.log("Game ends in a draw.");
         alert(("Draw."))  
-    }
+    } // depending on the results of the 5 rounds, different messages are alerted
 }
 
-game();
+game(); //run game function
