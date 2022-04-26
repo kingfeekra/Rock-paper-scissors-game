@@ -71,9 +71,9 @@ function playRound(playerSelection, computerSelection) { //function to play a si
 
 function game() { //function to repeat the game for 5 rounds
     
-    for (let i = 0; i <  5; i++) {
-        console.log(playRound(playerSelect(), computerPlay()));
-    }
+
+    console.log(playRound(playerSelect(), computerPlay()));
+  
     if (playerCount > computerCount) {
         console.log("Winner!");
         alert("You won!");
@@ -88,4 +88,10 @@ function game() { //function to repeat the game for 5 rounds
     } // depending on the results of the 5 rounds, different messages are alerted
 }
 
-game(); //run game function
+const btn = document.querySelectorAll('.button');
+    for(let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener('click', game);
+    };
+
+
+//game(); //run game function
