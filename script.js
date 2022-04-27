@@ -2,30 +2,43 @@ let rock = 1;
 let paper = 2;
 let scissors = 3;
 
-//let playerSelection = prompt("Rock, paper or scissors?");
-
 let playerCount = 0;
 let computerCount = 0;
 
-function playerSelect() {
-    return prompt("Rock, paper or scissors?");
-}
+let playerSelect; 
+
+ const btn = document.querySelectorAll('.button');
+    for(let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("click", () => console.log(btn[i].id));
+        btn[i].addEventListener("click", () => playerSelect = function() {
+            if(i == 0) {
+                return "rock";
+            }
+            else if(i == 1) {
+                return "paper";
+            }
+            else if(i == 2) {
+                return "scissors";
+            }
+        });
+        btn[i].addEventListener('click', game);
+    }; 
 
 function computerPlay() { //function for computer's turn
     
     let randNumb = Math.floor(Math.random()*3) + 1; //random number between 1 and 3 is generated
     if (rock == randNumb) { //if rock, paper or scissors is equal to the random number, return a string
-        console.log("rock");
+        //console.log("rock");
         return "rock";
     }
 
     else if (paper == randNumb) {
-        console.log("paper");
+        //console.log("paper");
         return "paper";   
     }
 
     else {
-        console.log("scissors");
+        //console.log("scissors");
         return "scissors";
         
     }
@@ -88,10 +101,14 @@ function game() { //function to repeat the game for 5 rounds
     } // depending on the results of the 5 rounds, different messages are alerted
 }
 
-const btn = document.querySelectorAll('.button');
-    for(let i = 0; i < btn.length; i++) {
-        btn[i].addEventListener('click', game);
-    };
 
+const rockBtn = document.querySelector("#rockButton");
+rockBtn.addEventListener("click", playerSelect);
 
-//game(); //run game function
+const paperBtn = document.querySelector("#paperButton");
+paperBtn.addEventListener("click", playerSelect);
+
+const scissorsBtn = document.querySelector("#scissorsButton");
+scissorsBtn.addEventListener("click", playerSelect);
+    
+//game(); //run game function */
