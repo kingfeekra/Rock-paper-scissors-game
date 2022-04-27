@@ -5,12 +5,12 @@ let scissors = 3;
 let playerCount = 0;
 let computerCount = 0;
 
-let playerSelect; 
+let playerSelect; //later becomes a function
 
- const btn = document.querySelectorAll('.button');
+ const btn = document.querySelectorAll('.button'); //return nodelist of buttons, add event listeners to all buttons through loop
     for(let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("click", () => console.log(btn[i].id));
-        btn[i].addEventListener("click", () => playerSelect = function() {
+        btn[i].addEventListener("click", () => playerSelect = function() { //returns a different selection depending on which button is clicked
             if(i == 0) {
                 return "rock";
             }
@@ -21,7 +21,7 @@ let playerSelect;
                 return "scissors";
             }
         });
-        btn[i].addEventListener('click', game);
+        btn[i].addEventListener('click', game); //runs 1 round of the game when player clicks any button
     }; 
 
 function computerPlay() { //function for computer's turn
