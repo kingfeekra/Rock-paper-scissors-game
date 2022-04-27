@@ -7,6 +7,12 @@ let computerCount = 0;
 
 let playerSelect; //later becomes a function
 
+const container = document.querySelector("#results");
+const results = document.createElement("p");
+const selections = document.createElement("p");
+container.appendChild(selections);
+container.appendChild(results);
+
  const btn = document.querySelectorAll('.button'); //return nodelist of buttons, add event listeners to all buttons through loop
     for(let i = 0; i < btn.length; i++) {
         btn[i].addEventListener("click", () => console.log(btn[i].id));
@@ -24,7 +30,7 @@ let playerSelect; //later becomes a function
         btn[i].addEventListener('click', game); //runs 1 round of the game when player clicks any button
     }; 
 
-const resultsDiv = document.querySelector("#results");
+
 
 function computerPlay() { //function for computer's turn
     
@@ -50,44 +56,51 @@ function computerPlay() { //function for computer's turn
 function playRound(playerSelection, computerSelection) { //function to play a single round of the game
     if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") { //various matchups return different results
         computerCount++;
-        resultsDiv.textContent = "You lose! Paper beats rock."
-        return "You lose! Paper beats rock."
+        selections.textContent = "You chose: rock. Computer chose: paper.";
+        results.textContent = "You lose! Paper beats rock.";
+        return "You lose! Paper beats rock.";
     } 
 
     else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
         playerCount++;
-        resultsDiv.textContent = "You win! Paper beats rock."
-        return "You win! Paper beats rock."
+        selections.textContent = "You chose: paper. Computer chose: rock.";
+        results.textContent = "You win! Paper beats rock.";
+        return "You win! Paper beats rock.";
     }
 
     else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
         playerCount++;
-        resultsDiv.textContent = "You win! Rock beats scissors."
-        return "You win! Rock beats scissors."
+        selections.textContent = "You chose: rock. Computer chose: scissors.";
+        results.textContent = "You win! Rock beats scissors.";
+        return "You win! Rock beats scissors.";
     }
 
     else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock") {
         computerCount++;
-        resultsDiv.textContent = "You lose! Rock beats scissors."
-        return "You lose! Rock beats scissors."
+        selections.textContent = "You chose: scissors. Computer chose: rock.";
+        results.textContent = "You lose! Rock beats scissors.";
+        return "You lose! Rock beats scissors.";
     }
 
     else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
         playerCount++;
-        resultsDiv.textContent = "You win! Scissors beats paper."
-        return "You win! Scissors beats paper."
+        selections.textContent = "You chose: scissors. Computer chose: paper.";
+        results.textContent = "You win! Scissors beats paper.";
+        return "You win! Scissors beats paper.";
     }
 
     else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
         computerCount++;
-        resultsDiv.textContent = "You lose! Scissors beats paper."
-        return "You lose! Scissors beats paper."
+        selections.textContent = "You chose: paper. Computer chose: scissors.";
+        results.textContent = "You lose! Scissors beats paper.";
+        return "You lose! Scissors beats paper.";
     }
 
     
     else if (playerSelection.toLowerCase() == computerSelection) {
-        resultsDiv.textContent = "Draw."
-        return "Draw."
+        selections.textContent = "It's a draw!";
+        results.textContent = "Draw.";
+        return "Draw.";
     }
 }
 
