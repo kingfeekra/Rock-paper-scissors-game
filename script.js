@@ -10,8 +10,12 @@ let playerSelect; //later becomes a function
 const container = document.querySelector("#results");
 const results = document.createElement("p");
 const selections = document.createElement("p");
+const playerScore = document.createElement("p");
+const computerScore = document.createElement("p");
 container.appendChild(selections);
 container.appendChild(results);
+container.appendChild(playerScore);
+container.appendChild(computerScore);
 
  const btn = document.querySelectorAll('.button'); //return nodelist of buttons, add event listeners to all buttons through loop
     for(let i = 0; i < btn.length; i++) {
@@ -58,6 +62,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         computerCount++;
         selections.textContent = "You chose: rock. Computer chose: paper.";
         results.textContent = "You lose! Paper beats rock.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You lose! Paper beats rock.";
     } 
 
@@ -65,6 +71,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         playerCount++;
         selections.textContent = "You chose: paper. Computer chose: rock.";
         results.textContent = "You win! Paper beats rock.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You win! Paper beats rock.";
     }
 
@@ -72,6 +80,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         playerCount++;
         selections.textContent = "You chose: rock. Computer chose: scissors.";
         results.textContent = "You win! Rock beats scissors.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You win! Rock beats scissors.";
     }
 
@@ -79,6 +89,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         computerCount++;
         selections.textContent = "You chose: scissors. Computer chose: rock.";
         results.textContent = "You lose! Rock beats scissors.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You lose! Rock beats scissors.";
     }
 
@@ -86,6 +98,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         playerCount++;
         selections.textContent = "You chose: scissors. Computer chose: paper.";
         results.textContent = "You win! Scissors beats paper.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You win! Scissors beats paper.";
     }
 
@@ -93,6 +107,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
         computerCount++;
         selections.textContent = "You chose: paper. Computer chose: scissors.";
         results.textContent = "You lose! Scissors beats paper.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "You lose! Scissors beats paper.";
     }
 
@@ -100,6 +116,8 @@ function playRound(playerSelection, computerSelection) { //function to play a si
     else if (playerSelection.toLowerCase() == computerSelection) {
         selections.textContent = "It's a draw!";
         results.textContent = "Draw.";
+        playerScore.textContent = "Your score: " + `${playerCount}` + ".";
+        computerScore.textContent = "Your score: " + `${computerCount}` + ".";
         return "Draw.";
     }
 }
@@ -109,19 +127,16 @@ function game() { //function to repeat the game for 5 rounds
 
     console.log(playRound(playerSelect(), computerPlay()));
   
- /*   if (playerCount > computerCount) {
-        console.log("Winner!");
-        alert("You won!");
+     if (playerCount == 5) {
+        alert("You won 5 rounds! Congratulations!");
+        location.reload();
     }
-    else if (computerCount > playerCount) {
-        console.log("Loser.");
-        alert("You lost.")
+    else if (computerCount == 5) {
+        alert("You lost. Computer won 5 rounds.");
+        location.reload();
     }
-    else {
-        console.log("Game ends in a draw.");
-        alert(("Draw."))  
-    } */// depending on the results of the 5 rounds, different messages are alerted
 }
+
 
 
     
